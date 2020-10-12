@@ -23,13 +23,14 @@ app.get("/", function(req, res){
 });
 
 app.post("/",function(req,res){
-  var ppc1 = req.body.pp1;
-  var ppc2 = req.body.pp2;
-  var ppc3 = req.body.pp3;
+  var ppc1, ppc2, ppc3;
+  ppc1= req.body.pp1;
+  ppc2= req.body.pp2;
+  ppc3= req.body.pp3;
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("elementList");
-    var query = {$and:[{pp3: 7},{pp2: 2},{pp1: 9}]};
+    var query = {$and:[{pp3: Number(ppc3)},{pp2: Number(ppc2)},{pp1: Number(ppc1)}]};
     dbo.collection("List").find(query).toArray(function(err, result) {
       if (err) throw err;
       console.log(result);
