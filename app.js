@@ -15,15 +15,14 @@ app.use(express.static("public"));
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
-
-
-
 app.get("/", function(req, res){
   res.render("home");
 });
 
 app.post("/",function(req,res){
-  var ppc1, ppc2, ppc3;
+  var ppc1, ppc2, ppc3, vc1, vc2;
+  vc1= req.body.v1;
+  vc2= req.body.v2;
   ppc1= req.body.pp1;
   ppc2= req.body.pp2;
   ppc3= req.body.pp3;
@@ -35,7 +34,7 @@ app.post("/",function(req,res){
       if (err) throw err;
       console.log(result);
       db.close();
-      res.redirect("/");
+      res.render("result");
     });
   });
 
