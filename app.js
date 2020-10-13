@@ -15,10 +15,6 @@ app.use(express.static("public"));
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
-app.get("/", function(req, res){
-  res.render("home");
-});
-
 app.post("/",function(req,res){
   var ppc1, ppc2, ppc3, vc1, vc2;
   vc1= req.body.v1;
@@ -28,16 +24,26 @@ app.post("/",function(req,res){
   ppc3= req.body.pp3;
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
-    var dbo = db.db("elementList");
-    var query = {$and:[{pp3: Number(ppc3)},{pp2: Number(ppc2)},{pp1: Number(ppc1)}]};
-    dbo.collection("List").find(query).toArray(function(err, result) {
-      if (err) throw err;
-      console.log(result);
-      db.close();
-      res.render("result");
+      var dbp = db.db("elementfea");
+      var query = {$and:[{v2: vc2},{v1: vc1}]};
+      dbp.collection("Listfea").find(query).toArray(function(err, result1) {
+        if (err) throw err;
+        console.log(result1);
+      });
+      var dbo = db.db("elementList");
+      var query = {$and:[{pp3: Number(ppc3)},{pp2: Number(ppc2)},{pp1: Number(ppc1)}]};
+      dbo.collection("List").find(query).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
     });
+    db.close();
+    res.render("result");
   });
+});
 
+
+app.get("/", function(req, res){
+  res.render("home");
 });
 
 app.listen(3000,function(){
