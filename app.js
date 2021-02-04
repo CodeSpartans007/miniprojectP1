@@ -2,13 +2,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose =require("mongoose");
 const _ = require("lodash");
+require("dotenv").config();
 
 const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://<username>:<password>@spartan.aht0p.mongodb.net/growTECH?retryWrites=true&w=majority", {
+const mongo_url = process.env.URL;
+
+mongoose.connect(""+mongo_url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
