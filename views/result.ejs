@@ -1,46 +1,163 @@
 <%- include("partials/header"); -%>
 
-
-<h1>HOME</h1>
-<br><br>
 <h1>RESULT PAGE</h1>
 
 <div id="RESULT">
     <div id="STATE">
         <div id="KHARIF">
-            <div id="FRUITS">
-                <% fruit.forEach(function(fruit){ %>
-                    <p><%= fruit.Name %></p>
-                <% }); %>
-            </div>
-            <div id="VEGETABLES">
-        
-            </div>
-            <div id="GRAINS">
-        
-            </div>
+            <table>
+                <tr><th><h2>KHARIF CROPS</h2></th></tr>
+                <tr>
+                    <td>
+                        <div id="FRUITS">
+                            <h3>FRUITS</h3>
+                            <% fruit.forEach(function(fruit){ %>
+                                <% if((fruit.Type == "Kharif")||(fruit.Type == "KHARIF")){ %>
+                                    <% if((fruit.Temp_M < S_WTM)||( S_WTm > fruit.Temp_m )){ %>
+                                        <% if((fruit.pH_M > S_pH)&&( S_pH > fruit.pH_m )){ %>
+                                            <p><%= fruit.Name %></p>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="VEGETABLES">
+                            <h3>VEGETABLES</h3>
+                            <% vegetable.forEach(function(vegetable){ %>
+                                <% if((vegetable.Type == "Kharif")||(vegetable.Type == "KHARIF")){ %>
+                                    <% if((vegetable.Temp_M < S_WTM)||( S_WTm > vegetable.Temp_m )){ %>
+                                        <% if((vegetable.pH_M > S_pH)&&( S_pH > vegetable.pH_m )){ %>
+                                            <p><%= vegetable.Name %></p>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="GRAINS">
+                            <h3>GRAINS</h3>
+                            <% grain.forEach(function(grain){ %>
+                                <% if((grain.Type == "Kharif")||(grain.Type == "KHARIF")){ %>
+                                    <% if((grain.Temp_M < S_WTM)||( S_WTm > grain.Temp_m )){ %>
+                                        <% if((grain.pH_M > S_pH)&&( S_pH > grain.pH_m )){ %>
+                                            <p><%= grain.Name %></p>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </td>
+                </tr>
+            </table>  
         </div>
         <div id="RABI">
-            <div id="FRUITS">
+            <table>
+                <tr><th><h2>RABI CROPS</h2></th></tr>
+                <tr>
+                    <td>
+                        <div id="FRUITS">
+                            <h3>FRUITS</h3>
+                            <% fruit.forEach(function(fruit){ %>
+                                <% if((fruit.Type == "Rabi")||(fruit.Type == "RABI")){ %>
 
-            </div>
-            <div id="VEGETABLES">
-        
-            </div>
-            <div id="GRAINS">
-        
-            </div>
+                                    <% if((fruit.Temp_M < S_WTM)||( S_WTm > fruit.Temp_m )){ %>
+                                        <% if((fruit.pH_M > S_pH)&&( S_pH > fruit.pH_m )){ %>
+                                            <p><%= fruit.Name %></p>
+                                        <% } %>
+                                    <% } %>
+
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="VEGETABLES">
+                            <h3>VEGETABLES</h3>
+                            <% vegetable.forEach(function(vegetable){ %>
+                                <% if((vegetable.Type == "Rabi")||(vegetable.Type == "RABI")){ %>
+
+                                        <% if((vegetable.Temp_M < S_WTM)||( S_WTm > vegetable.Temp_m )){ %>
+                                            <% if((vegetable.pH_M > S_pH)&&( S_pH > vegetable.pH_m )){ %>
+                                                <p><%= vegetable.Name %></p>
+                                            <% } %>
+                                        <% } %>
+
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="GRAINS">
+                            <h3>GRAINS</h3>
+                            <% grain.forEach(function(grain){ %>
+                                <% if((grain.Type == "Rabi")||(grain.Type == "RABI")){ %>
+                                    <% if((grain.Temp_M < S_WTM)||( S_WTm > grain.Temp_m )){ %>
+                                        <% if((grain.pH_M > S_pH)&&( S_pH > grain.pH_m )){ %>
+                                            <p><%= grain.Name %></p>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div id="ZAID">
-            <div id="FRUITS">
+            <table>
+                <tr><th><h2>ZAID CROPS</h2></th></tr>
+                <tr>
+                    <td>
+                        <div id="FRUITS">
+                            <h3>FRUITS</h3>
+                            <% fruit.forEach(function(fruit){ %>
+                                <% if((fruit.Type == "Zaid")||(fruit.Type == "ZAID")){ %>
 
-            </div>
-            <div id="VEGETABLES">
-        
-            </div>
-            <div id="GRAINS">
-        
-            </div>
+                                    <% if((fruit.Temp_M < S_WTM)||( S_WTm > fruit.Temp_m )){ %>
+                                        <% if((fruit.pH_M > S_pH)&&( S_pH > fruit.pH_m )){ %>
+                                            <p><%= fruit.Name %></p>
+                                        <% } %>
+                                    <% } %>
+
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="VEGETABLES">
+                            <h3>VEGETABLES</h3>
+                            <% vegetable.forEach(function(vegetable){ %>
+                                <% if((vegetable.Type == "Zaid")||(vegetable.Type == "ZAID")){ %>
+
+                                        <% if((vegetable.Temp_M < S_WTM)||( S_WTm > vegetable.Temp_m )){ %>
+                                            <% if((vegetable.pH_M > S_pH)&&( S_pH > vegetable.pH_m )){ %>
+                                                <p><%= vegetable.Name %></p>
+                                            <% } %>
+                                        <% } %>
+
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="GRAINS">
+                            <h3>GRAINS</h3>
+                            <% grain.forEach(function(grain){ %>
+                                <% if((grain.Type == "Zaid")||(grain.Type == "ZAID")){ %>
+                                    <% if((grain.Temp_M < S_WTM)||( S_WTm > grain.Temp_m )){ %>
+                                        <% if((grain.pH_M > S_pH)&&( S_pH > grain.pH_m )){ %>
+                                            <p><%= grain.Name %></p>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     

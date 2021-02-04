@@ -14,12 +14,16 @@
   <br><br>
   <h2>Soil Test Result</h2>
   <input type="double" name="p1" placeholder="pH" autocomplete="off">
-  <input type="double" name="p2" placeholder="Acidity" autocomplete="off">
-  <input type="double" name="p3" placeholder="P" autocomplete="off">
-  <input type="double" name="p4" placeholder="K" autocomplete="off">
-  <input type="double" name="p5" placeholder="Ca" autocomplete="off">
-  <input type="double" name="p6" placeholder="Mg" autocomplete="off">
-  
+  <!-- <input type="double" name="p2" placeholder="Soil Type" autocomplete="off"> -->
+  <label for="Soil"><p>Choose your Soil Type:</p></label>
+  <select id="Soil" name="p2">
+    <option value="CLAY SOIL">CLAY SOIL</option>
+    <option value="CHALK SOIL">CHALK SOIL</option>
+    <option value="LOAM SOIL">LOAM SOIL</option>
+    <option value="PEAT SOIL">PEAT SOIL</option>
+    <option value="SANDY SOIL">SANDY SOIL</option>
+    <option value="SILT SOIL">SILT SOIL</option>
+  </select>
 
   <br><br><br><br>
   <button type="submit" name="button">SUBMIT</button>

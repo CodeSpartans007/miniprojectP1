@@ -34,56 +34,32 @@ const statesSchema = new mongoose.Schema ({
 
 const fruitsSchema = new mongoose.Schema ({
   Name: String,
+  Type: String,
   Temp_M: Number,
   Temp_m: Number,
   pH_M: Number,
   pH_m: Number,
-  Acidity_M: Number,
-  Acidity_m: Number,
-  P_M: Number,
-  P_m: Number,
-  K_M: Number,
-  K_m: Number,
-  Ca_M: Number,
-  Ca_m: Number,
-  Mg_M: Number,
-  Mg_m: Number,
+  soil_type: String
 });
 
 const vegetablesSchema = new mongoose.Schema ({
   Name: String,
+  Type: String,
   Temp_M: Number,
   Temp_m: Number,
   pH_M: Number,
   pH_m: Number,
-  Acidity_M: Number,
-  Acidity_m: Number,
-  P_M: Number,
-  P_m: Number,
-  K_M: Number,
-  K_m: Number,
-  Ca_M: Number,
-  Ca_m: Number,
-  Mg_M: Number,
-  Mg_m: Number,
+  soil_type: String
 });
 
 const grainsSchema = new mongoose.Schema ({
   Name: String,
+  Type: String,
   Temp_M: Number,
   Temp_m: Number,
   pH_M: Number,
   pH_m: Number,
-  Acidity_M: Number,
-  Acidity_m: Number,
-  P_M: Number,
-  P_m: Number,
-  K_M: Number,
-  K_m: Number,
-  Ca_M: Number,
-  Ca_m: Number,
-  Mg_M: Number,
-  Mg_m: Number,
+  soil_type: String
 });
 
 var State = new mongoose.model("State",statesSchema);
@@ -120,14 +96,11 @@ var Grain = new mongoose.model("Grain", grainsSchema);
 
 app.post("/",function(req,res){
 
-  var vc1,pc1,pc2,pc3,pc4,pc5,pc6,WTM,WTm,STM,STm,MTM,MTm;
+  var vc1,pc1,pc2,WTM,WTm,STM,STm,MTM,MTm;
   vc1 = req.body.v1; //DATA OF STATE FROM HOMEPAGE
   pc1 = req.body.p1; //DATA OF SOIL pH LEVEL FROM HOMEPAGE
-  pc2 = req.body.p2; //DATA OF SOIL Acidity LEVEL FROM HOMEPAGE
-  pc3 = req.body.p3; //DATA OF SOIL P LEVEL FROM HOMEPAGE
-  pc4 = req.body.p4; //DATA OF SOIL K LEVEL FROM HOMEPAGE
-  pc5 = req.body.p5; //DATA OF SOIL Ca LEVEL FROM HOMEPAGE
-  pc6 = req.body.p6; //DATA OF SOIL Mg LEVEL FROM HOMEPAGE
+  pc2 = req.body.p2; //DATA OF SOIL TYPE FROM HOMEPAGE
+  
 
   
   const query  = State.where({ Name : vc1 });
@@ -165,11 +138,7 @@ app.post("/",function(req,res){
                 'grain': Graincard, //GRAIN DATABASE
                 region: vc1, //STATE
                 S_pH: pc1, //SOIL pH LEVEL
-                S_Acidity: pc2, //SOIL Acidity LEVEL
-                S_P: pc3, //SOIL P LEVEL
-                S_K: pc4, //SOIL K LEVEL
-                S_Ca: pc5, //SOIL Ca LEVEL
-                S_Mg: pc6, //SOIL Mg LEVEL
+                S_Stype: pc2, //SOIL TYPE
                 S_WTM: WTM, //MAX TEMP IN WINTER
                 S_WTm: WTm, //MIN TEMP IN WINTER
                 S_STM: STM, //MAX TEMP IN SUMMER
