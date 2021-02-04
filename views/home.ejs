@@ -3,17 +3,24 @@
 
 <h1>HOME</h1>
 <p>Mini Project Phase 1</p>
-<p>LETS START</p>
+<br>
+<a href="/fruit">FRUITS</a>
+<a href="/grain">GRAINS</a>
+<a href="/vegetable">VEGETABLES</a>
 <br><br>
 <form class="" action="/" method="post">
   <h2>Region</h2>
-  <input type="text" name="v1" placeholder="v1" autocomplete="off">
-  <input type="text" name="v2" placeholder="v2" autocomplete="off">
+  <input type="text" name="v1" placeholder="STATE" autocomplete="off" onkeyup="this.value = this.value.toUpperCase();">
   <br><br>
-  <h2>Test result</h2>
-  <input type="number" name="pp1" placeholder="pp1" autocomplete="off">
-  <input type="number" name="pp2" placeholder="pp2" autocomplete="off">
-  <input type="number" name="pp3" placeholder="pp3" autocomplete="off">
+  <h2>Soil Test Result</h2>
+  <input type="double" name="p1" placeholder="pH" autocomplete="off">
+  <input type="double" name="p2" placeholder="Acidity" autocomplete="off">
+  <input type="double" name="p3" placeholder="P" autocomplete="off">
+  <input type="double" name="p4" placeholder="K" autocomplete="off">
+  <input type="double" name="p5" placeholder="Ca" autocomplete="off">
+  <input type="double" name="p6" placeholder="Mg" autocomplete="off">
+  
+
   <br><br><br><br>
   <button type="submit" name="button">SUBMIT</button>
 </form>

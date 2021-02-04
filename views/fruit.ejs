@@ -1,0 +1,12 @@
+<%- include("partials/header"); -%>
+
+<H1>ALL FRUITS</H1>
+<a href="/">HOME</a>
+
+<div id="fruit">
+    <% Fruit.forEach(function(Fruit){ %>
+        <p><%= Fruit.Name %></p>
+    <% }); %>
+</div>
+
+<%- include("partials/footer"); -%>
