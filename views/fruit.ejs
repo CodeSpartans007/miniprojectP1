@@ -1,12 +1,30 @@
 <%- include("partials/header"); -%>
 
-<H1>ALL FRUITS</H1>
-<a href="/">HOME</a>
-
 <div id="fruit">
-    <% Fruit.forEach(function(Fruit){ %>
-        <p><%= Fruit.Name %></p>
-    <% }); %>
+    <table style="width:100%">
+        <tr>     
+            <div class="croplist"></div>
+                <% crop.forEach(function(crop){ %>
+                    <td>
+                        <% if(crop.Crop_type=="FRUIT"){ %>    
+                            <div class="card" style="width: 14rem; height: 20rem">
+                                <img src="<%= crop.Image %>" style="height: 10rem;" class="image" alt="...">
+                                <div class="overlay">
+                                    <div class="text">
+                                        Its an <%= crop.Season %> crop, suitable soil pH: <%= crop.pH %> suitable climate Temperature & Rainfall: <%= crop.Temp %>`C--<%= crop.Rainfall %>mm
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h6  style="height: 1rem;" class="card-title"><%= crop.Crop %></h6>
+                                    <p style="height: 1rem;" class="card-text"><%= crop.Crop_type %></p>
+                                </div>   
+                            </div> 
+                        <% } %>
+                    </td>
+                <% }); %>
+            </div>
+        </tr>
+    </table>
 </div>
 
 <%- include("partials/footer"); -%>
