@@ -27,13 +27,14 @@ h1{
   background-color: #e3f2fd;
   width: 300px;
   float: right;
-  margin-right: 100px;
+  margin-right: 10%;
   
   font-family: 'Zilla Slab', serif;
   border-radius: 15px;
 }
 
 #wholebody{
+
   
 }
 
@@ -105,7 +106,8 @@ table {
 
 .croplist {
   position: relative;
-  width: 50%;
+  overflow: hidden;
+  width: 100%;
 }
 
 
