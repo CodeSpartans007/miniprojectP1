@@ -94,37 +94,27 @@ const cropsSchema = new mongoose.Schema({
   Soil_type6: String
 });
 
+const allcropsSchema = new mongoose.Schema({
+  Crop: String,
+  pH: Number,
+  Temp: Number,
+  Rainfall: Number,
+  Image: String,
+  Crop_type: String,
+  Soil_type1: String,
+  Soil_type2: String,
+  Soil_type3: String,
+  Soil_type4: String,
+  Soil_type5: String,
+  Soil_type6: String
+});
+
 var State = new mongoose.model("State",statesSchema);
 var Fruit = new mongoose.model("Fruit", fruitsSchema);
 var Vegetable = new mongoose.model("Vegetable", vegetablesSchema);
 var Grain = new mongoose.model("Grain", grainsSchema);
 var Crop_recomdended = new mongoose.model("Crop_recomdended", cropsSchema);
-
-// app.post("/",function(req,res){
-//   var ppc1, ppc2, ppc3, vc1, vc2;
-//   vc1= req.body.v1;
-//   vc2= req.body.v2;
-//   ppc1= req.body.pp1;
-//   ppc2= req.body.pp2;
-//   ppc3= req.body.pp3;
-//   MongoClient.connect(url, function(err, db) {
-//     if (err) throw err;
-//       var dbp = db.db("elementfea");
-//       var query = {$and:[{v2: vc2},{v1: vc1}]};
-//       dbp.collection("Listfea").find(query).toArray(function(err, result1) {
-//         if (err) throw err;
-//         console.log(result1);
-//       });
-//       var dbo = db.db("elementList");
-//       var query = {$and:[{pp3: Number(ppc3)},{pp2: Number(ppc2)},{pp1: Number(ppc1)}]};
-//       dbo.collection("List").find(query).toArray(function(err, result) {
-//         if (err) throw err;
-//         console.log(result);
-//     });
-//     db.close();
-//     res.render("result");
-//   });
-// });
+var All_crop = new mongoose.model("All_crop", allcropsSchema);
 
 
 app.post("/",function(req,res){
@@ -170,11 +160,20 @@ app.post("/",function(req,res){
                 console.log(err);
                 }
                 else{
+
+                  All_crop.find(function(err, Allcropcard){
+                    if(err){
+                    console.log(err);
+                    }
+                    else{
+
+
                   res.render("result", {
                     'fruit': Fruitcard, //FRUIT DATABASE
                     'vegetable': Vegetablecard, //VEGETABLE DATABASE
                     'grain': Graincard, //GRAIN DATABASE
                     'crop': Cropcard,
+                    'acrop': Allcropcard,
                     region: vc1, //STATE
                     S_pH: pc1, //SOIL pH LEVEL
                     S_Stype: pc2, //SOIL TYPE
@@ -185,6 +184,8 @@ app.post("/",function(req,res){
                     S_MTM: MTM, //MAX TEMP IN MONSOON
                     S_MTm: MTm, //MIN TEMP IN MONSOON
                   });
+                }
+              });//ALL CROP
                 }
               }); //CROP
             }
@@ -201,12 +202,12 @@ app.post("/",function(req,res){
 app.get("/fruit", function(req, res){
   // res.render("fruit");
 
-  Crop_recomdended.find(function(err, Cropcard){
+  All_crop.find(function(err, aCropcard){
     if(err){
     console.log(err);
     }
     else{
-      res.render("fruit", {'crop': Cropcard});
+      res.render("fruit", {'acrop': aCropcard});
     }
   });
 
@@ -215,12 +216,12 @@ app.get("/fruit", function(req, res){
 app.get("/vegetable", function(req, res){
   // res.render("vegetable");
 
-  Crop_recomdended.find(function(err, Cropcard){
+  All_crop.find(function(err, aCropcard){
     if(err){
     console.log(err);
     }
     else{
-      res.render("vegetable", {'crop': Cropcard});
+      res.render("vegetable", {'acrop': aCropcard});
     }
   });
 
@@ -229,12 +230,12 @@ app.get("/vegetable", function(req, res){
 app.get("/grain", function(req, res){
   // res.render("fruit");
 
-  Crop_recomdended.find(function(err, Cropcard){
+  All_crop.find(function(err, aCropcard){
     if(err){
     console.log(err);
     }
     else{
-      res.render("grain", {'crop': Cropcard});
+      res.render("grain", {'acrop': aCropcard});
     }
   });
 

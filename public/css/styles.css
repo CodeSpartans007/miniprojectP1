@@ -7,6 +7,8 @@ body{
   background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: auto;
     height:inherit;
+    max-width: 100%;
+    /* overflow-x: hidden; */
 }
 
 h1{
@@ -28,7 +30,7 @@ h1{
   margin-right: 100px;
   
   font-family: 'Zilla Slab', serif;
-  border-radius: 15%;
+  border-radius: 15px;
 }
 
 #wholebody{
@@ -69,7 +71,7 @@ table, th, td {
 
 
 .box{
-  position: relative;
+  position:relative ;
   width: 250px;
   height: 250px;
   background-color: #e3f2fd;
@@ -90,6 +92,8 @@ table, th, td {
 
 table {
   border-spacing: 15px;
+  max-width: 100%;
+  flex-direction: column;
 }
 
 .card{
@@ -138,4 +142,30 @@ table {
   transform: translate(-50%, -50%);
   text-align: center;
   font-family: 'Zilla Slab', serif;
+}
+
+
+.card{
+
+  margin-left: 40px;
+
+}
+.col{
+  margin-top: 10px;
+}
+
+
+#fruit{
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#grain{
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#vegetable{
+  max-width: 100%;
+  overflow: hidden;
 }

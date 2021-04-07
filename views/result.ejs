@@ -41,40 +41,38 @@
 </div>
 
 <div id="wholebody">
-    <body>
         <div class="gap" style="height: 10px;"></div>
         <h1>RECOMENDED CROP</h1>
-        <table style="width:100%">
-            <tr>
-                <div class="croplist"></div>
+        <div class="croplist"></div>
+        <div class="row">
                         <% crop.forEach(function(crop){ %>
-                            <td>
                             <% if( region == crop.State_Name ){ %>
-                            <% if( S_pH > crop.pH ){ %>
-                                <% if((crop.Soil_type1==S_Stype)||(crop.Soil_type2==S_Stype)||(crop.Soil_type3==S_Stype)||(crop.Soil_type4==S_Stype)||(crop.Soil_type5==S_Stype)||(crop.Soil_type6==S_Stype)){ %>
-                                    <div class="card" style="width: 14rem; height: 20rem">
-                                        <img src="<%= crop.Image %>" style="height: 10rem;" class="image" alt="...">
-                                        <div class="overlay">
-                                            <div class="text">
-                                                Its an <%= crop.Season %> crop, suitable soil pH: <%= crop.pH %> suitable climate Temperature & Rainfall: <%= crop.Temp %>`C--<%= crop.Rainfall %>mm
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <h6  style="height: 1rem;" class="card-title"><%= crop.Crop %></h6>
-                                            <p style="height: 1rem;" class="card-text"><%= crop.Crop_type %></p>
-                                        </div>   
-                                    </div>            
-                                <% } %>
+                                <% acrop.forEach(function(acrop){ %>
+                                    <% if( crop.Crop == acrop.Crop ){ %>
+                                        <% if( S_pH > acrop.pH ){ %>
+                                            <% if((acrop.Soil_type1==S_Stype)||(acrop.Soil_type2==S_Stype)||(acrop.Soil_type3==S_Stype)||(acrop.Soil_type4==S_Stype)||(acrop.Soil_type5==S_Stype)||(acrop.Soil_type6==S_Stype)){ %>
+                                                <div class="col col-lg-3">
+                                                <div class="card" style="width: 14rem; height: 20rem">
+                                                    <img src="<%= acrop.Image %>" style="height: 10rem;" class="image" alt="...">
+                                                    <div class="overlay">
+                                                        <div class="text">
+                                                            Its an <%= crop.Season %> crop, suitable soil pH: <%= acrop.pH %> suitable climate Temperature & Rainfall: <%= acrop.Temp %>`C--<%= acrop.Rainfall %>mm
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h6  style="height: 1rem;" class="card-title"><%= acrop.Crop %></h6>
+                                                        <p style="height: 1rem;" class="card-text"><%= acrop.Crop_type %></p>
+                                                    </div>   
+                                                </div> 
+                                            </div>       
+                                            <% } %>
+                                        <% } %>
+                                    <% } %>
+                                <% }); %>
                             <% } %>
-                            <% } %>
-                            </td>
                         <% }); %>
                     </div>
-                
-            </tr>
-        </table>
-    </body>
-    
+                </div>
 </div>
 
 
