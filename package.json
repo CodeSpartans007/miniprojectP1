@@ -14,7 +14,8 @@
   "author": "codespartens",
   "license": "ISC",
   "engines": {
-    "node": "12.18.3"
+    "node": "12.18.3",
+    "npm" : "6.14.6"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -24,7 +25,6 @@
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "mongoose": "^5.10.9",
-    "node": "^14.13.1",
     "request": "^2.88.2"
   }
 }
