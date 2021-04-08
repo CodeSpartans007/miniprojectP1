@@ -41,12 +41,12 @@
 </div> -->
 
 <div class="gap" style="height: 10px;"></div>
-        <h1>GRAINS</h1>
+        <h1>OTHER CROPS</h1>
 
 <div id="grain">
     <div class="row">
         <% acrop.forEach(function(acrop){ %>
-            <% if(acrop.Crop_type=="GRAIN"){ %>    
+            <% if((acrop.Crop_type=="GRAIN")||(acrop.Crop_type=="PLANTATION CROP")||(acrop.Crop_type=="FIBER CROP")||(acrop.Crop_type=="LEGUME")||(acrop.Crop_type=="FOOD CROP")||(acrop.Crop_type=="FIBER CROP")||(acrop.Crop_type=="LEGUME")||(acrop.Crop_type=="SPICE CROP")){ %>    
                 <div class="col col-lg-3">
                     <div class="card" style="width: 14rem; height: 20rem">
                         <img src="<%= acrop.Image %>" style="height: 10rem;" class="image" alt="...">
